@@ -4,6 +4,7 @@ import { ContactoComponent } from './shared/contacto/contacto.component';
 import { CartaComponent } from './shared/carta/carta.component';
 import { InicioComponent } from './shared/inicio/inicio.component';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -13,4 +14,5 @@ import { InicioComponent } from './shared/inicio/inicio.component';
 })
 export class AppComponent {
   title = 'TallerDSAngu';
+  
 }

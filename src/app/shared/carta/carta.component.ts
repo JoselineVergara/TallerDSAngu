@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
+import { Foto } from '../../interfaz/foto';
+import { RecursosService } from '../../servicios/recursos.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-carta',
-  imports: [],
+  imports: [HttpClientModule],
+  providers:[RecursosService],
   templateUrl: './carta.component.html',
   styleUrl: './carta.component.css'
 })
@@ -65,6 +69,23 @@ export class CartaComponent {
         "minutos": "9min"
       }
    ]
+
+     fotos: Foto[]=[];
+     constructor(private recursosService: RecursosService){
+       recursosService.obtenerDatos().subscribe(respuesta=>{
+         this.fotos= respuesta as Array<Foto>
+
+         this.medios.forEach((card, index) => {
+          if (this.fotos[index]) {
+            card.foto = this.fotos[index].url;  
+          } else {
+            card.foto = 'assets/img/default.jpg'; // Imagen por defecto si no hay suficientes fotos
+          }
+        });
+
+       })
+
+     }
  
 
 }
