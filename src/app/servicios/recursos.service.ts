@@ -13,4 +13,12 @@ export class RecursosService {
 
     
   }
+
+  obtenerDatosTabla(){
+    return this.http.get('https://jsonplaceholder.typicode.com/posts')
+  }
+
+  obtenerDetallePosts(id:number){
+    return this.http.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+  }
 }

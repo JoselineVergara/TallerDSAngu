@@ -1,0 +1,23 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Titulo</th>
+        <th scope="col">Descripcion</th>
+      </tr>
+    </thead>
+    <tbody>
+        @for (tabla of tabla; track $index){ 
+            @if ($index < 6){
+                <tr>
+                    <td>{{tabla.id}}</td>
+                    <td>{{tabla.title}}</td>
+                    <td>
+                        <button type="button" (click)="obtenerId(tabla.id)">Info</button>
+                    </td>
+                </tr>
+            }
+
+        }
+    </tbody>
+  </table>
